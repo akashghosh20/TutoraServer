@@ -194,21 +194,6 @@ class _ListStudentPageState extends State<ListTeacherPage> {
                             color: Colors.redAccent,
                             child: const Center(
                               child: Text(
-                                'Living city',
-                                style: TextStyle(
-                                  fontSize: 12.0,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        TableCell(
-                          // refers to the cell of  that row
-                          child: Container(
-                            color: Colors.redAccent,
-                            child: const Center(
-                              child: Text(
                                 'University',
                                 style: TextStyle(
                                   fontSize: 12.0,
@@ -341,6 +326,20 @@ class _ListStudentPageState extends State<ListTeacherPage> {
                             color: Colors.redAccent,
                             child: const Center(
                               child: Text(
+                                'Image Url',
+                                style: TextStyle(
+                                  fontSize: 12.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        TableCell(
+                          child: Container(
+                            color: Colors.redAccent,
+                            child: const Center(
+                              child: Text(
                                 'Action',
                                 style: TextStyle(
                                   fontSize: 12.0,
@@ -394,11 +393,6 @@ class _ListStudentPageState extends State<ListTeacherPage> {
                           ),
                           TableCell(
                             child: Center(
-                                child: Text(storedocs[i]['teaching city'], //
-                                    style: const TextStyle(fontSize: 10.0))),
-                          ),
-                          TableCell(
-                            child: Center(
                                 child: Text(storedocs[i]['university'],
                                     style: const TextStyle(fontSize: 10.0))),
                           ),
@@ -409,7 +403,12 @@ class _ListStudentPageState extends State<ListTeacherPage> {
                           ),
                           TableCell(
                             child: Center(
-                                child: Text(storedocs[i]['teaching areas'],
+                                child: Text(storedocs[i]['teaching city'],
+                                    style: const TextStyle(fontSize: 10.0))),
+                          ),
+                          TableCell(
+                            child: Center(
+                                child: Text(storedocs[i]['teaching areas'], //
                                     style: const TextStyle(fontSize: 10.0))),
                           ),
                           TableCell(

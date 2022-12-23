@@ -25,11 +25,10 @@ class _AddStudentPageState extends State<AddTeachersPage> {
   var teachingcity = "";
   var teachingareas = "";
   var experience = "";
-  var subjectteaching = "";
-  var teachingdays = "";
+  var teachingsubject = "";
+  var days = "";
   var askingsalary = "";
   var targetstring = "";
-  var tutoraFeedBack = "";
   var imageUrl = "";
   // Create a text controller and use it to retrieve the current value
   // of the TextField.
@@ -40,18 +39,18 @@ class _AddStudentPageState extends State<AddTeachersPage> {
   final genderController = TextEditingController();
   final ageController = TextEditingController();
   final religionController = TextEditingController();
-  final cityController = TextEditingController();
   final universityController = TextEditingController();
-  final studysubjectController = TextEditingController();
-  final teachingcityController = TextEditingController();
-  final teachingareasController = TextEditingController();
+  final studySubjectController = TextEditingController();
+  final teachingCityController = TextEditingController();
+  final teachingSubjectController = TextEditingController();
+  final teachingAreasController = TextEditingController();
   final experienceController = TextEditingController();
   final subjectteachingController = TextEditingController();
   final teachingdaysController = TextEditingController();
   final askingsalaryController = TextEditingController();
-  final targetstringController = TextEditingController();
-  final tutoraFeedBackController = TextEditingController();
+  final targetStudentsController = TextEditingController();
   final imageUrlController = TextEditingController();
+  final teachingDaysController = TextEditingController();
 
   @override
   void dispose() {
@@ -63,18 +62,18 @@ class _AddStudentPageState extends State<AddTeachersPage> {
     genderController.dispose();
     ageController.dispose();
     religionController.dispose();
-    cityController.dispose();
     universityController.dispose();
-    studysubjectController.dispose();
-    teachingcityController.dispose();
-    teachingareasController.dispose();
+    studySubjectController.dispose();
+    teachingCityController.dispose();
+    teachingAreasController.dispose();
     experienceController.dispose();
     subjectteachingController.dispose();
     teachingdaysController.dispose();
     askingsalaryController.dispose();
-    targetstringController.dispose();
-    tutoraFeedBackController.dispose();
+    targetStudentsController.dispose();
     imageUrlController.dispose();
+    teachingSubjectController.dispose();
+    teachingDaysController.dispose();
 
     super.dispose();
   }
@@ -87,18 +86,18 @@ class _AddStudentPageState extends State<AddTeachersPage> {
     genderController.clear();
     ageController.clear();
     religionController.clear();
-    cityController.clear();
     universityController.clear();
-    studysubjectController.clear();
-    teachingcityController.clear();
-    teachingareasController.clear();
+    studySubjectController.clear();
+    teachingCityController.clear();
+    teachingAreasController.clear();
     experienceController.clear();
     subjectteachingController.clear();
     teachingdaysController.clear();
     askingsalaryController.clear();
-    targetstringController.clear();
-    tutoraFeedBackController.clear();
+    targetStudentsController.clear();
     imageUrlController.clear();
+    teachingSubjectController.clear();
+    teachingDaysController.clear();
   }
 
   // Adding Student
@@ -108,24 +107,23 @@ class _AddStudentPageState extends State<AddTeachersPage> {
   Future<void> addUser() {
     return teachers
         .add({
-          'name': name,
-          'user name': username,
-          'phone number': phone,
           'email': email,
+          'user name': username,
+          'name': name,
           'gender': gender,
-          'age': age,
           'religion': religion,
+          'phone number': phone,
+          'age': age,
           'university': university,
-          'study subject': studysubject,
           'teaching city': teachingcity,
           'teaching areas': teachingareas,
-          'experience': experience,
-          'teaching subject': subjectteaching,
-          'days': teachingdays,
-          'asking salary': askingsalary,
-          'target student': targetstring,
-          'tutora feedback': tutoraFeedBack,
           'image url': imageUrl,
+          'experience': experience,
+          'study subject': studysubject,
+          'asking salary': askingsalary,
+          'days': days,
+          'target student': targetstring,
+          'teaching subject': teachingsubject,
         })
         .then((value) => print('User Added'))
         .catchError((error) => print('Failed to Add user: $error'));
@@ -149,16 +147,16 @@ class _AddStudentPageState extends State<AddTeachersPage> {
                 child: TextFormField(
                   autofocus: false,
                   decoration: InputDecoration(
-                    labelText: 'Name: ',
+                    labelText: 'Email: ',
                     labelStyle: TextStyle(fontSize: 20.0),
                     border: OutlineInputBorder(),
                     errorStyle:
                         TextStyle(color: Colors.redAccent, fontSize: 15),
                   ),
-                  controller: nameController,
+                  controller: emailController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please Enter Name';
+                      return 'Please Enter Your Emial';
                     }
                     return null;
                   },
@@ -191,58 +189,16 @@ class _AddStudentPageState extends State<AddTeachersPage> {
                 child: TextFormField(
                   autofocus: false,
                   decoration: InputDecoration(
-                    labelText: 'Phone: ',
+                    labelText: 'Name : ',
                     labelStyle: TextStyle(fontSize: 20.0),
                     border: OutlineInputBorder(),
                     errorStyle:
                         TextStyle(color: Colors.redAccent, fontSize: 15),
                   ),
-                  controller: phoneController,
+                  controller: nameController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please Enter Phone number';
-                    }
-                    return null;
-                  },
-                ),
-              ),
-              Container(
-                // this container is the value box for taking inputs
-                margin: EdgeInsets.symmetric(vertical: 10.0),
-                child: TextFormField(
-                  autofocus: false,
-                  decoration: InputDecoration(
-                    labelText: 'Phone: ',
-                    labelStyle: TextStyle(fontSize: 20.0),
-                    border: OutlineInputBorder(),
-                    errorStyle:
-                        TextStyle(color: Colors.redAccent, fontSize: 15),
-                  ),
-                  controller: imageUrlController,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please Enter Image Url';
-                    }
-                    return null;
-                  },
-                ),
-              ),
-              Container(
-                // this container is the value box for taking inputs
-                margin: EdgeInsets.symmetric(vertical: 10.0),
-                child: TextFormField(
-                  autofocus: false,
-                  decoration: InputDecoration(
-                    labelText: 'Email: ',
-                    labelStyle: TextStyle(fontSize: 20.0),
-                    border: OutlineInputBorder(),
-                    errorStyle:
-                        TextStyle(color: Colors.redAccent, fontSize: 15),
-                  ),
-                  controller: emailController,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please Enter your email';
+                      return 'Please Enter Your Name';
                     }
                     return null;
                   },
@@ -263,7 +219,49 @@ class _AddStudentPageState extends State<AddTeachersPage> {
                   controller: genderController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please Enter Gender';
+                      return 'Please Enter your gender';
+                    }
+                    return null;
+                  },
+                ),
+              ),
+              Container(
+                // this container is the value box for taking inputs
+                margin: EdgeInsets.symmetric(vertical: 10.0),
+                child: TextFormField(
+                  autofocus: false,
+                  decoration: InputDecoration(
+                    labelText: 'Religion : ',
+                    labelStyle: TextStyle(fontSize: 20.0),
+                    border: OutlineInputBorder(),
+                    errorStyle:
+                        TextStyle(color: Colors.redAccent, fontSize: 15),
+                  ),
+                  controller: religionController,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please Enter your religion';
+                    }
+                    return null;
+                  },
+                ),
+              ),
+              Container(
+                // this container is the value box for taking inputs
+                margin: EdgeInsets.symmetric(vertical: 10.0),
+                child: TextFormField(
+                  autofocus: false,
+                  decoration: InputDecoration(
+                    labelText: 'Phone: ',
+                    labelStyle: TextStyle(fontSize: 20.0),
+                    border: OutlineInputBorder(),
+                    errorStyle:
+                        TextStyle(color: Colors.redAccent, fontSize: 15),
+                  ),
+                  controller: phoneController,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please Enter Phone Number';
                     }
                     return null;
                   },
@@ -296,16 +294,16 @@ class _AddStudentPageState extends State<AddTeachersPage> {
                 child: TextFormField(
                   autofocus: false,
                   decoration: InputDecoration(
-                    labelText: 'Religion : ',
+                    labelText: 'University : ',
                     labelStyle: TextStyle(fontSize: 20.0),
                     border: OutlineInputBorder(),
                     errorStyle:
                         TextStyle(color: Colors.redAccent, fontSize: 15),
                   ),
-                  controller: religionController,
+                  controller: universityController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please Enter City';
+                      return 'Please Enter your University';
                     }
                     return null;
                   },
@@ -316,16 +314,16 @@ class _AddStudentPageState extends State<AddTeachersPage> {
                 child: TextFormField(
                   autofocus: false,
                   decoration: InputDecoration(
-                    labelText: 'City: ',
+                    labelText: 'Study Subject',
                     labelStyle: TextStyle(fontSize: 20.0),
                     border: OutlineInputBorder(),
                     errorStyle:
                         TextStyle(color: Colors.redAccent, fontSize: 15),
                   ),
-                  controller: cityController,
+                  controller: studySubjectController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please Enter Address';
+                      return 'Please Enter Your Study Subject';
                     }
                     return null;
                   },
@@ -336,13 +334,13 @@ class _AddStudentPageState extends State<AddTeachersPage> {
                 child: TextFormField(
                   autofocus: false,
                   decoration: InputDecoration(
-                    labelText: 'City: ',
+                    labelText: 'Teaching Subjects ',
                     labelStyle: TextStyle(fontSize: 20.0),
                     border: OutlineInputBorder(),
                     errorStyle:
                         TextStyle(color: Colors.redAccent, fontSize: 15),
                   ),
-                  controller: imageUrlController,
+                  controller: teachingSubjectController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please Ener Image Url';
@@ -356,16 +354,16 @@ class _AddStudentPageState extends State<AddTeachersPage> {
                 child: TextFormField(
                   autofocus: false,
                   decoration: InputDecoration(
-                    labelText: 'University: ',
+                    labelText: 'Teaching City: ',
                     labelStyle: TextStyle(fontSize: 20.0),
                     border: OutlineInputBorder(),
                     errorStyle:
                         TextStyle(color: Colors.redAccent, fontSize: 15),
                   ),
-                  controller: universityController,
+                  controller: teachingCityController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please Enter Religion';
+                      return 'Please Enter Teaching City';
                     }
                     return null;
                   },
@@ -376,16 +374,16 @@ class _AddStudentPageState extends State<AddTeachersPage> {
                 child: TextFormField(
                   autofocus: false,
                   decoration: InputDecoration(
-                    labelText: 'Subject of studing : ',
+                    labelText: 'Teaching Areas: ',
                     labelStyle: TextStyle(fontSize: 20.0),
                     border: OutlineInputBorder(),
                     errorStyle:
                         TextStyle(color: Colors.redAccent, fontSize: 15),
                   ),
-                  controller: studysubjectController,
+                  controller: teachingAreasController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please Enter Age';
+                      return 'Please Enter Teaching Areas';
                     }
                     return null;
                   },
@@ -396,127 +394,7 @@ class _AddStudentPageState extends State<AddTeachersPage> {
                 child: TextFormField(
                   autofocus: false,
                   decoration: InputDecoration(
-                    labelText: 'Subject of studing : ',
-                    labelStyle: TextStyle(fontSize: 20.0),
-                    border: OutlineInputBorder(),
-                    errorStyle:
-                        TextStyle(color: Colors.redAccent, fontSize: 15),
-                  ),
-                  controller: studysubjectController,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please Enter Age';
-                    }
-                    return null;
-                  },
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(vertical: 10.0),
-                child: TextFormField(
-                  autofocus: false,
-                  decoration: InputDecoration(
-                    labelText: 'Subject of studing : ',
-                    labelStyle: TextStyle(fontSize: 20.0),
-                    border: OutlineInputBorder(),
-                    errorStyle:
-                        TextStyle(color: Colors.redAccent, fontSize: 15),
-                  ),
-                  controller: studysubjectController,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please Enter Age';
-                    }
-                    return null;
-                  },
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(vertical: 10.0),
-                child: TextFormField(
-                  autofocus: false,
-                  decoration: InputDecoration(
-                    labelText: 'Subject of studing : ',
-                    labelStyle: TextStyle(fontSize: 20.0),
-                    border: OutlineInputBorder(),
-                    errorStyle:
-                        TextStyle(color: Colors.redAccent, fontSize: 15),
-                  ),
-                  controller: studysubjectController,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please Enter Age';
-                    }
-                    return null;
-                  },
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(vertical: 10.0),
-                child: TextFormField(
-                  autofocus: false,
-                  decoration: InputDecoration(
-                    labelText: 'Subject of studing : ',
-                    labelStyle: TextStyle(fontSize: 20.0),
-                    border: OutlineInputBorder(),
-                    errorStyle:
-                        TextStyle(color: Colors.redAccent, fontSize: 15),
-                  ),
-                  controller: studysubjectController,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please Enter Age';
-                    }
-                    return null;
-                  },
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(vertical: 10.0),
-                child: TextFormField(
-                  autofocus: false,
-                  decoration: InputDecoration(
-                    labelText: 'Subject of studing : ',
-                    labelStyle: TextStyle(fontSize: 20.0),
-                    border: OutlineInputBorder(),
-                    errorStyle:
-                        TextStyle(color: Colors.redAccent, fontSize: 15),
-                  ),
-                  controller: teachingcityController,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please Enter Age';
-                    }
-                    return null;
-                  },
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(vertical: 10.0),
-                child: TextFormField(
-                  autofocus: false,
-                  decoration: InputDecoration(
-                    labelText: 'Subject of studing : ',
-                    labelStyle: TextStyle(fontSize: 20.0),
-                    border: OutlineInputBorder(),
-                    errorStyle:
-                        TextStyle(color: Colors.redAccent, fontSize: 15),
-                  ),
-                  controller: teachingareasController,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please Enter Age';
-                    }
-                    return null;
-                  },
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(vertical: 10.0),
-                child: TextFormField(
-                  autofocus: false,
-                  decoration: InputDecoration(
-                    labelText: 'Subject of studing : ',
+                    labelText: 'Experience : ',
                     labelStyle: TextStyle(fontSize: 20.0),
                     border: OutlineInputBorder(),
                     errorStyle:
@@ -525,7 +403,7 @@ class _AddStudentPageState extends State<AddTeachersPage> {
                   controller: experienceController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please Enter Age';
+                      return 'Please Enter Your Experience';
                     }
                     return null;
                   },
@@ -536,16 +414,16 @@ class _AddStudentPageState extends State<AddTeachersPage> {
                 child: TextFormField(
                   autofocus: false,
                   decoration: InputDecoration(
-                    labelText: 'Subject of studing : ',
+                    labelText: 'Target Students : ',
                     labelStyle: TextStyle(fontSize: 20.0),
                     border: OutlineInputBorder(),
                     errorStyle:
                         TextStyle(color: Colors.redAccent, fontSize: 15),
                   ),
-                  controller: subjectteachingController,
+                  controller: targetStudentsController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please Enter Age';
+                      return 'Please Enter Target Students';
                     }
                     return null;
                   },
@@ -556,16 +434,16 @@ class _AddStudentPageState extends State<AddTeachersPage> {
                 child: TextFormField(
                   autofocus: false,
                   decoration: InputDecoration(
-                    labelText: 'Subject of studing : ',
+                    labelText: 'Teaching Days : ',
                     labelStyle: TextStyle(fontSize: 20.0),
                     border: OutlineInputBorder(),
                     errorStyle:
                         TextStyle(color: Colors.redAccent, fontSize: 15),
                   ),
-                  controller: teachingdaysController,
+                  controller: teachingDaysController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please Enter Age';
+                      return 'Please Enter Teaching days';
                     }
                     return null;
                   },
@@ -576,7 +454,7 @@ class _AddStudentPageState extends State<AddTeachersPage> {
                 child: TextFormField(
                   autofocus: false,
                   decoration: InputDecoration(
-                    labelText: 'Subject of studing : ',
+                    labelText: 'Asking Salary : ',
                     labelStyle: TextStyle(fontSize: 20.0),
                     border: OutlineInputBorder(),
                     errorStyle:
@@ -585,7 +463,7 @@ class _AddStudentPageState extends State<AddTeachersPage> {
                   controller: askingsalaryController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please Enter Age';
+                      return 'Please Enter Teaching days';
                     }
                     return null;
                   },
@@ -596,36 +474,16 @@ class _AddStudentPageState extends State<AddTeachersPage> {
                 child: TextFormField(
                   autofocus: false,
                   decoration: InputDecoration(
-                    labelText: 'Tutora Feedback : ',
+                    labelText: 'Image Url: ',
                     labelStyle: TextStyle(fontSize: 20.0),
                     border: OutlineInputBorder(),
                     errorStyle:
                         TextStyle(color: Colors.redAccent, fontSize: 15),
                   ),
-                  controller: tutoraFeedBackController,
+                  controller: imageUrlController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please Enter Tutora Feedback';
-                    }
-                    return null;
-                  },
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(vertical: 10.0),
-                child: TextFormField(
-                  autofocus: false,
-                  decoration: InputDecoration(
-                    labelText: 'Subject of studing : ',
-                    labelStyle: TextStyle(fontSize: 20.0),
-                    border: OutlineInputBorder(),
-                    errorStyle:
-                        TextStyle(color: Colors.redAccent, fontSize: 15),
-                  ),
-                  controller: targetstringController,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please Enter Age';
+                      return 'Please Enter Asking Salary';
                     }
                     return null;
                   },
@@ -647,16 +505,16 @@ class _AddStudentPageState extends State<AddTeachersPage> {
                             gender = genderController.text;
                             age = ageController.text;
                             religion = religionController.text;
-                            city = cityController.text;
+                            imageUrl = imageUrlController.text;
                             university = universityController.text;
-                            studysubject = studysubjectController.text;
-                            teachingcity = teachingcityController.text;
-                            teachingareas = teachingareasController.text;
+                            studysubject = studySubjectController.text;
+                            teachingcity = teachingCityController.text;
+                            teachingareas = teachingAreasController.text;
                             experience = experienceController.text;
-                            subjectteaching = subjectteachingController.text;
-                            teachingdays = teachingdaysController.text;
+                            teachingsubject = teachingSubjectController.text;
+                            days = teachingDaysController.text;
                             askingsalary = askingsalaryController.text;
-                            targetstring = targetstringController.text;
+                            targetstring = targetStudentsController.text;
                             addUser();
                             clearText();
                           });

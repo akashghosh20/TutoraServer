@@ -10,45 +10,42 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(30),
-      child: Container(
-        // width: MediaQuery.of(context).size.width,
-        child: GridView.count(
-          crossAxisSpacing: 1,
-          mainAxisSpacing: 2,
-          crossAxisCount: 3,
-          children: <Widget>[
-            DashboardItems(
-              title: "Students",
-              imgUrl: 'assets/images/profile_pic.png',
-              press: () {},
-            ),
-            DashboardItems(
-              title: "Tutor",
-              imgUrl: 'assets/images/profile_pic.png',
-              press: () {},
-            ),
-            DashboardItems(
-              title: "Total Earnings",
-              imgUrl: 'assets/images/profile_pic.png',
-              press: () {},
-            ),
-            DashboardItems(
-              title: "Adds posted",
-              imgUrl: 'assets/images/profile_pic.png',
-              press: () {},
-            ),
-            DashboardItems(
-              title: "Verified tutors",
-              imgUrl: 'assets/images/profile_pic.png',
-              press: () {},
-            ),
-            DashboardItems(
-              title: "Active areas",
-              imgUrl: 'assets/images/profile_pic.png',
-              press: () {},
-            ),
-          ],
-        ),
+      child: GridView.count(
+        crossAxisSpacing: 1,
+        mainAxisSpacing: 2,
+        crossAxisCount: 3,
+        children: <Widget>[
+          DashboardItems(
+            title: "Students",
+            imgUrl: 'assets/images/students.png',
+            press: () {},
+          ),
+          DashboardItems(
+            title: "Tutor",
+            imgUrl: 'assets/images/profile_pic.png',
+            press: () {},
+          ),
+          DashboardItems(
+            title: "Total Earnings",
+            imgUrl: 'assets/images/profile_pic.png',
+            press: () {},
+          ),
+          DashboardItems(
+            title: "Adds posted",
+            imgUrl: 'assets/images/profile_pic.png',
+            press: () {},
+          ),
+          DashboardItems(
+            title: "Verified tutors",
+            imgUrl: 'assets/images/profile_pic.png',
+            press: () {},
+          ),
+          DashboardItems(
+            title: "Active areas",
+            imgUrl: 'assets/images/profile_pic.png',
+            press: () {},
+          ),
+        ],
       ),
     );
   }

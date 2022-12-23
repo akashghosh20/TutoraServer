@@ -30,7 +30,7 @@ class _UpdateTeacherPageState extends State<UpdateTeacherPage> {
       teachingcity,
       teachingareas,
       experience,
-      subjectteaching,
+      teachingsubject,
       teachingdays,
       askingsalary,
       targetstring,
@@ -51,7 +51,7 @@ class _UpdateTeacherPageState extends State<UpdateTeacherPage> {
           'teaching city': teachingcity,
           'teaching areas': teachingareas,
           'experience': experience,
-          'teaching subject': subjectteaching,
+          'teaching subject': teachingsubject,
           'days': teachingdays,
           'asking salary': askingsalary,
           'target student': targetstring,
@@ -103,11 +103,10 @@ class _UpdateTeacherPageState extends State<UpdateTeacherPage> {
                 var teachingcity = data['teaching city'];
                 var teachingareas = data['teaching areas'];
                 var experience = data['experience'];
-                var subjectteaching = data['teaching subject'];
+                var teachingsubject = data['teaching subject'];
                 var teachingdays = data['days'];
                 var askingsalary = data['asking salary'];
                 var targetstring = data['target student'];
-                var tutoraFeddBack = data['tutorafeeback'];
                 var imageUrl = data['image url'];
                 return Padding(
                   padding:
@@ -150,7 +149,7 @@ class _UpdateTeacherPageState extends State<UpdateTeacherPage> {
                           ),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'Please Enter Image url';
+                              return 'Please Enter Image Url';
                             }
                             return null;
                           },
@@ -390,9 +389,9 @@ class _UpdateTeacherPageState extends State<UpdateTeacherPage> {
                       Container(
                         margin: const EdgeInsets.symmetric(vertical: 10.0),
                         child: TextFormField(
-                          initialValue: subjectteaching,
+                          initialValue: teachingsubject,
                           autofocus: false,
-                          onChanged: (value) => subjectteaching = value,
+                          onChanged: (value) => teachingsubject = value,
                           decoration: const InputDecoration(
                             labelText: 'subjectteaching: ',
                             labelStyle: TextStyle(fontSize: 20.0),
@@ -493,7 +492,7 @@ class _UpdateTeacherPageState extends State<UpdateTeacherPage> {
                                   teachingcity,
                                   teachingareas,
                                   experience,
-                                  subjectteaching,
+                                  teachingsubject,
                                   teachingdays,
                                   askingsalary,
                                   targetstring,
